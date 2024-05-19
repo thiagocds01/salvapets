@@ -19,7 +19,7 @@
             <th>Imagem</th>
             <th>Ações</th>
         </tr>
-        <c:forEach var="listaPets" items="${pet}">
+        <c:forEach var="pet" items="${pet}">
             <tr>
                 <td>${pet.nome}</td>
                 <td>${pet.raca}</td>

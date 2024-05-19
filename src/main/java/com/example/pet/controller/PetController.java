@@ -26,8 +26,8 @@ public class PetController {
     @RequestMapping(value = "/pets")
     public ModelAndView listaPets() {
         ModelAndView mv = new ModelAndView("pets");
-        Iterable<Pet> pet = pr.findAll();
-        mv.addObject("pets", pet);
+        Iterable<Pet> pets = pr.findAll();
+        mv.addObject("pets", pets);
         return mv;
     }
 
