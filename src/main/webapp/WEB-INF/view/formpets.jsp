@@ -5,21 +5,13 @@
 </head>
 <body>
     <h2>Cadastrar Pets</h2>
-    <form action="/pet/cadastrar" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome"><br>
-
-        <label for="raca">Raça:</label>
-        <input type="text" id="raca" name="raca"><br>
-
-        <label for="idade">Idade:</label>
-        <input type="number" id="idade" name="idade"><br>
-
-        <label for="imagem">Imagem (Base64):</label>
-        <textarea id="imagem" name="imagem"></textarea><br>
-
-        <button type="submit">Cadastrar</button>
-    </form>
+<form action="/pet/cadastrar" method="post">
+    <input type="text" name="nome" placeholder="Nome do Pet" required><br>
+    <input type="text" name="raca" placeholder="Raça do Pet" required><br>
+    <input type="number" name="idade" placeholder="Idade do Pet" required><br>
+    <input type="file" name="imagem" accept="image/*" required><br>
+    <button type="submit">Cadastrar</button>
+</form>
     <a href="/pet"><button type="submit"> Voltar</button</a>
 </body>
 </html>
