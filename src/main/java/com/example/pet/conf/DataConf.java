@@ -19,7 +19,7 @@ public class DataConf {
 		dataSource.setDriverClassName("org.postgresql.Driver");
 		dataSource.setUrl("jdbc:postgresql://localhost:5432/pet");
 		dataSource.setUsername("postgres");
-		dataSource.setPassword("626752");
+		dataSource.setPassword("1820");
 		return dataSource;
 	}
 	
