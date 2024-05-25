@@ -5,6 +5,10 @@ import java.util.Optional;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -24,14 +28,16 @@ import java.nio.file.Paths;
 import com.example.pet.model.Pet;
 import com.example.pet.repository.PetRepository;
 
+
 @Controller
 public class PetController {
 
     @Autowired
     private PetRepository pr;
 
-    @RequestMapping(value = "/")
-    public String home() {
+    @GetMapping(value = "/")
+    public String home()
+    {
         return "pets";
     }
 
