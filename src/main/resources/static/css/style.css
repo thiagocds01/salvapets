@@ -161,35 +161,35 @@ input, textarea {
 }
 
 .menu-content {
-    padding: 5px 0;
-    text-align: center;
+    padding: 5px 0!important;
+    text-align: center!important;
 
 }
 .menu-content ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0!important;
+    display: flex!important;
+    justify-content: center!important;
 }
 
 .menu-content li {
-    margin: 0 15px;
+    margin: 0 15px!important;
 }
 
 .menu-content a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    margin: 0 10px;
-    display: inline-block;
+    color: #333!important;
+    text-decoration: none!important;
+    font-weight: bold!important;
+    padding: 10px 15px!important;
+    margin: 0 10px!important;
+    display: inline-block!important;
 }
 
 .menu-content a:hover {
-    background-color: #86dacb;
-    color: #fff;
-    border-radius: 4px;
+    background-color: #86dacb!important;
+    color: #fff!important;
+    border-radius: 4px!important;
 }
 
         .container-grid {

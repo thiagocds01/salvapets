@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ::::::::::::::Favicon icon::::::::::::::-->
-    <link rel="shortcut icon" href="../../../resources/static/img/logomarca.png" type="image/png">
+    <link rel="shortcut icon" href="<c:url value='/resources/img/Logomarca.png'/>" type="image/png'/>">
 
     <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
     <!-- Google Fonts -->
@@ -23,23 +23,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="../../../resources/static/css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../../resources/static/css/vendor/material-icons.css">
-    <link rel="stylesheet" href="../../../resources/static/css/vendor/jquery-ui.min.css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/vendor/bootstrap.min.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/vendor/material-icons.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/vendor/jquery-ui.min.css'/>">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="../../../resources/static/css/plugins/animate.css">
-    <link rel="stylesheet" href="../../../resources/static/css/plugins/nice-select.css">
-    <link rel="stylesheet" href="../../../resources/static/css/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="../../../resources/static/css/plugins/ion.rangeSlider.min.css">
-    <link rel="stylesheet" href="../../../resources/static/css/plugins/venobox.min.css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/plugins/animate.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/plugins/nice-select.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/plugins/swiper-bundle.min.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/plugins/ion.rangeSlider.min.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/plugins/venobox.min.css'/>">
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>">
 
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
-    <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
-<link rel="stylesheet" href="assets/css/plugins/plugins.min.css">
+    <!-- <link rel="stylesheet" href="<c:url value='/resources/css/vendor/vendor.min.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/plugins/plugins.min.css'/>">
 
 
 
@@ -86,7 +86,8 @@
         <div class="box-wrapper">
             <div class="breadcrumb-wrapper breadcrumb-wrapper--style-1 pos-relative">
                 <div class="breadcrumb-bg" style="">
-                    <img src="../../../resources/static/img/blog/blog-thumbnail/teste.jpg"/>
+                    <img src="<c:url value='/resources/img/blog/blog-thumbnail/teste.jpg'/>"
+
                 </div>
                 <div class="breadcrumb-content section-fluid-270">
                     <div class="breadcrumb-wrapper">
@@ -110,9 +111,7 @@
 
                             <div class="product-shop-list-items">
                                 <div class="row mb-n25">
-                                    <div class="col-xl-4 col-md-6 col-12 mb-25">
                                         <!-- Start Product Single Item - Style 1 -->
-                                        <div class="product-single-item-style-1">
                                             <div class="container-grid">
 
                                                 <c:forEach var="pet" items="${pets}">
@@ -134,10 +133,6 @@
                                                </div>
 
 
-                                        </div>
-                                        <!-- End Product Single Item - Style 1 -->
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
