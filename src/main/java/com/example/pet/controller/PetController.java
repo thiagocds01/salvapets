@@ -35,6 +35,21 @@ public class PetController {
     @Autowired
     private PetRepository pr;
 
+    @GetMapping(value="/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping(value="/minha-conta")
+    public String minha_conta() {
+        return "minha-conta";
+    }
+
+    @GetMapping("/logoff-success")
+    public String logoffSuccess() {
+        return "logoff-success"; // Nome da página de logoff (sem extensão)
+    }
+
     @GetMapping(value = "/")
     public String home()
     {
@@ -99,23 +114,16 @@ public class PetController {
     }
 
     @PostMapping("/{id}/update")
-    public String atualiza(@PathVariable Long id, @ModelAttribute("pet") Pet pet, BindingResult result) {
+    public String atualiza(@PathVariable Long id,  @ModelAttribute Pet pet, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "formedit";
         }
-        Optional<Pet> optionalPet = pr.findById(id);
-        if (optionalPet.isPresent()) {
-            Pet existingPet = optionalPet.get();
-            existingPet.setNome(pet.getNome());
-            existingPet.setRaca(pet.getRaca());
-            existingPet.setIdade(pet.getIdade());
-            existingPet.setImagem(pet.getImagem());
-            pr.save(existingPet);
-            return "redirect:/pets";
-        } else {
-            return "formedit";
-        }
+        pr.findById(id).get();
+        pr.save(pet);
+        model.addAttribute("pets", pr.findAll());
+        return "redirect:/pets";
     }
+
 
 
 

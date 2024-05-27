@@ -13,7 +13,7 @@ public class Pet {
     private String nome;
     private String raca;
     private int idade;
-    private byte[] imagem; // campo base64 da imagem
+//    private byte[] imagem; // campo base64 da imagem
 
     // Getters e Setters
     public Long getId() {
@@ -48,11 +48,11 @@ public class Pet {
         this.idade = idade;
     }
 
-    public byte[] getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
-    }
+//    public byte[] getImagem() {
+//        return imagem;
+//    }
+//
+//    public void setImagem(byte[] imagem) {
+//        this.imagem = imagem;
+//    }
 }

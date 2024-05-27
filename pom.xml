@@ -68,17 +68,10 @@
 			</exclusions>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.olap4j/olap4j -->
-		<dependency>
-			<groupId>org.olap4j</groupId>
-			<artifactId>olap4j</artifactId>
-			<version>1.2.0</version>
-		</dependency>
 
 		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf</artifactId>
-			<version>3.1.2.RELEASE</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 	</dependencies>

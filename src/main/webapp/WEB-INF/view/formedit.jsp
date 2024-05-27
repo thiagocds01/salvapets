@@ -142,23 +142,20 @@
         <h2>Editar Pet</h2>
         <img src="placeholder.jpg" alt="Foto do Pet" width="100" height="100">
 
-        <form action="/${pet.id}/update" method="post">
+        <form action="/pet/${pet.id}/update" method="post">
             <div>
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" value="${pet.nome}">
             </div>
             <div>
-                <label for="raca">Raça:</label>
+                <label for="raca">Raï¿½a:</label>
                 <input type="text" id="raca" name="raca" value="${pet.raca}">
             </div>
             <div>
                 <label for="idade">Idade:</label>
                 <input type="number" id="idade" name="idade" value="${pet.idade}">
             </div>
-            <div>
-                <label for="imagem">Imagem (Base64):</label>
-                <textarea id="imagem" name="imagem">${pet.imagem}</textarea>
-            </div>
+
 
             <div class="actions">
                 <button type="submit">Atualizar</button>
@@ -179,7 +176,7 @@
                             <div class="footer-widgets-items">
                                 <!-- Start Footer Widget Single Item -->
                                 <div class="footer-widgets-single-item footer-widgets-single-item--dark">
-                                    <h5 class="title">Páginas</h5>
+                                    <h5 class="title">Pï¿½ginas</h5>
                                 </div>
                                 <!-- End Footer Widget Single Item -->
                                 <!-- Start Footer Widget Single Item -->

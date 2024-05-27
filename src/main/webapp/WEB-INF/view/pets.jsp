@@ -54,7 +54,7 @@
                 <div class="row justify-content-between align-items-center">
                     <div class="col-auto">
                         <!-- Start Header Logo -->
-                        <a href="index.html" class="header-logo">
+                        <a href="/pet" class="header-logo">
                             <img class="img-fluid" src="<c:url value='/resources/img/Logomarca.png'/>" alt="" width="80" height="80">
                         </a>
                         <!-- End Header Logo -->
@@ -64,10 +64,11 @@
                             <!-- Start Menu event -->
                                 <div class="menu-content">
                                     <ul>
-                                        <li><a href="home.html">Home</a></li>
-                                        <li><a href="my-account.html">Minha Conta</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="checkout.html">Sair</a></li>
+                                        <li><a href="/pet/">Home</a></li>
+                                        <li><a href="/pet/pets">Pets</a></li>
+                                        <li><a href="/pet/minha-conta">Minha Conta</a></li>
+                                        <li><a href="/pet/login">Login</a></li>
+                                        <li><a href="/pet/logoff">Sair</a></li>
                                     </ul>
 
                                 </div>
