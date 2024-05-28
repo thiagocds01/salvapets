@@ -199,31 +199,7 @@
     </footer>
     <!-- ...::: End Footer Section Section - Footer Dark :::... -->
 
-    <!-- Scroll To button -->
-    <div id="scroll-to-top" class="scroll-to-top"><span class="material-icons-outlined">expand_less</span></div>
 
-    <!-- ::::::::::::::All JS Files here :::::::::::::: -->
-    <!-- Global Vendor -->
-    <script src="../../../resources/static/js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="../../../resources/static/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="../../../resources/static/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-    <script src="../../../resources/static/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="../../../resources/static/js/vendor/jquery-ui.min.js"></script>
-
-    <!--Plugins JS-->
-    <script src="../../../resources/static/js/plugins/jquery.nice-select.js"></script>
-    <script src="../../../resources/static/js/plugins/swiper-bundle.min.js"></script>
-    <script src="../../../resources/static/js/plugins/ion.rangeSlider.min.js"></script>
-    <script src="../../../resources/static/js/plugins/venobox.min.js"></script>
-    <script src="../../../resources/static/js/plugins/ajax-mail.js"></script>
-
-    <!-- Minify Version -->
-    <!-- <script src="assets/js/vendor/vendor.min.js"></script> -->
-    <!-- <script src="assets/js/plugins/plugins.min.js"></script> -->
-
-    <!--Main JS (Common Activation Codes)-->
-    <script src="../../../resources/static/js/main.js"></script>
-    <!-- <script src="assets/js/main.min.js"></script> -->
 
 </body>
 
