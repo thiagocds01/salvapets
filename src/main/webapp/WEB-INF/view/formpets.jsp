@@ -12,7 +12,6 @@
     <input type="text" name="nome" placeholder="Nome do Pet" required><br>
     <input type="text" name="raca" placeholder="Raça do Pet" required><br>
     <input type="number" name="idade" placeholder="Idade do Pet" required><br>
-    <input type="file" name="imagem" accept="image/*" required><br>
     <button type="submit">Cadastrar</button>
 </form>
     <a href="/pet"><button type="submit"> Voltar</button</a>

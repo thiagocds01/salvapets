@@ -79,17 +79,6 @@ public class PetController {
         return "redirect:/pets";
     }
 
-//    @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
-//    public ModelAndView cadastrar(@ModelAttribute("pet") Pet pet, BindingResult result, @RequestParam("fileData") {
-//        if (!fileData.isEmpty() && fileData != null) {
-//            byte[] bytes = fileData.getBytes();
-//            pet.setFileName(fileData.getOriginalFilename());
-//            pet.setImageFile(bytes);
-//            byte[] encodeBase64 = Base64.encodeBase64(bytes);
-//            String base64Encoded = new String(encodeBase64, "UTF-8");
-//            pet.setBase64image(base64encoded);
-//        }
-//    }
 
     @PostMapping("/{id}/delete")
     public String delete(@PathVariable Long id) {

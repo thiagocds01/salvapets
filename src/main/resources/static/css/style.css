@@ -119,6 +119,7 @@ textarea {
 
 input, textarea {
   width: 100%;
+  border: 1;
 }
 
 .ui-datepicker {
