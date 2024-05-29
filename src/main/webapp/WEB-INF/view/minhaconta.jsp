@@ -33,13 +33,11 @@
       <!-- <link rel="stylesheet" href="<c:url value='/resources/css/vendor/vendor.min.css'/>">
          <link rel="stylesheet" href="<c:url value='/resources/css/plugins/plugins.min.css'/>">
 
-
-
          </head>
 
-         <body>
+            <body>
 
-         <!-- .....:::::: Start Header Section - Dark Header :::::.... -->
+            <!-- .....:::::: Start Header Section - Dark Header :::::.... -->
       <header class="header-section pos-absolute dark-bg sticky-header d-none d-lg-block section-fluid-270">
          <div class="header-wrapper pos-relative">
             <div class="container-fluid">
@@ -58,9 +56,8 @@
                            <ul>
                               <li><a href="/pet/">Home</a></li>
                               <li><a href="/pet/pets">Pets</a></li>
-                              <li><a href="/pet/minha-conta">Minha Conta</a></li>
+                              <li><a href="/pet/minhaconta">Minha Conta</a></li>
                               <li><a href="/pet/login">Login</a></li>
-                              <li><a href="/pet/logoff">Sair</a></li>
                            </ul>
                         </div>
                      </div>
@@ -120,29 +117,29 @@
                                     <div>
                                        <label for="nome">Nome:</label>
                                        <input type="text" id="nome" name="nome" style="
-                                                                                    border-style: solid;
-                                                                                    border-width: 1px;
-                                                                                    border-radius: 13px;
-                                                                                    border-color: #264653;
-                                                                                ">
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
                                     </div>
                                     <div>
-                                       <label for="raca">Ra�a:</label>
+                                       <label for="raca">Raça:</label>
                                        <input type="text" id="raca" name="raca"style="
-                                                                                   border-style: solid;
-                                                                                   border-width: 1px;
-                                                                                   border-radius: 13px;
-                                                                                   border-color: #264653;
-                                                                               ">
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
                                     </div>
                                     <div>
                                        <label for="idade">Idade:</label>
                                        <input type="number" id="idade" name="idade"style="
-                                                                                       border-style: solid;
-                                                                                       border-width: 1px;
-                                                                                       border-radius: 13px;
-                                                                                       border-color: #264653;
-                                                                                   ">
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
                                     </div>
                                     <div class="login_submit">
                                        <button class="btn btn-sm btn-radius btn-default mb-4" type="submit">Cadastrar</button>
@@ -161,29 +158,29 @@
                                     <div>
                                        <label for="nome">Nome:</label>
                                        <input type="text" id="nome" name="nome" value="${pet.nome}"style="
-                                                                                                       border-style: solid;
-                                                                                                       border-width: 1px;
-                                                                                                       border-radius: 13px;
-                                                                                                       border-color: #264653;
-                                                                                                   ">
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
                                     </div>
                                     <div>
-                                       <label for="raca">Ra�a:</label>
+                                       <label for="raca">Raça:</label>
                                        <input type="text" id="raca" name="raca" value="${pet.raca}"style="
-                                                                                                       border-style: solid;
-                                                                                                       border-width: 1px;
-                                                                                                       border-radius: 13px;
-                                                                                                       border-color: #264653;
-                                                                                                   ">
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
                                     </div>
                                     <div>
                                        <label for="idade">Idade:</label>
                                        <input type="number" id="idade" name="idade" value="${pet.idade}"style="
-                                                                                                            border-style: solid;
-                                                                                                            border-width: 1px;
-                                                                                                            border-radius: 13px;
-                                                                                                            border-color: #264653;
-                                                                                                        ">
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
                                     </div>
                                     <div class="login_submit">
                                        <button class="btn btn-sm btn-radius btn-default mb-4" type="submit">Atualizar</button>
@@ -192,6 +189,39 @@
                               </div>
                            </div>
                         </div>
+
+
+                        <table border="1" frame="hsides" rules="rows">
+                                                   <thead>
+                                                      <tr>
+                                                         <th>Id</th>
+                                                         <th>Nome</th>
+                                                         <th>Raça</th>
+                                                         <th>Idade</th>
+                                                         <th>Ações</th>
+                                                      </tr>
+                                                   </thead>
+                                                   <tbody>
+                                                      <c:forEach var="pet" items="${minhaconta}">
+                                                         <tr>
+                                                            <td>${pet.id}</td>
+                                                            <td>${pet.nome}</td>
+                                                            <td>${pet.raca}</td>
+                                                            <td>${pet.idade}</td>
+                                                            <td>
+                                                               <a href="/pet/${pet.id}"><button class="botao-editar" type="submit" style="
+                                                                  font-size: 14px;
+                                                                  ">Editar</button></a>
+                                                               <form action="/pet/${pet.id}/delete" method="post" style="display:inline;">
+                                                                  <button class="bbotao-editar" type="submit" style="
+                                                                     font-size: 14px;
+                                                                     "><input type="submit" value="Excluir" /></button>
+                                                               </form>
+                                                            </td>
+                                                         </tr>
+                                                      </c:forEach>
+                                                   </tbody>
+                                                </table>
                      </div>
                   </div>
                </div>

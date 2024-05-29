@@ -40,10 +40,10 @@ public class PetController {
         return "login";
     }
 
-    @GetMapping(value="/minha-conta")
-    public String minha_conta() {
-        return "minha-conta";
-    }
+//    @GetMapping(value="/minha-conta")
+//    public String minha_conta() {
+//        return "minha-conta";
+//    }
 
     @GetMapping("/logoff-success")
     public String logoffSuccess() {
@@ -64,19 +64,27 @@ public class PetController {
         return mv;
     }
 
+    @RequestMapping(value = "/minhaconta")
+    public ModelAndView minha_conta() {
+        ModelAndView mv = new ModelAndView("minhaconta");
+        Iterable<Pet> pets = pr.findAll();
+        mv.addObject("minhaconta", pets);
+        return mv;
+    }
+
     @RequestMapping(value = "/cadastrar", method = RequestMethod.GET)
     public String cadastrarForm(Model model) {
         model.addAttribute("pet", new Pet());
-        return "formpets";
+        return "minhaconta";
     }
 
     @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
     public String cadastrar(@ModelAttribute("pet") Pet pet, BindingResult result) {
         if (result.hasErrors()) {
-            return "formpets";
+            return "minhaconta";
         }
         pr.save(pet);
-        return "redirect:/pets";
+        return "redirect:/minhaconta";
     }
 
 
@@ -86,7 +94,7 @@ public class PetController {
         if (pet.isPresent()) {
             pr.deleteById(id);
         }
-        return "redirect:/pets";
+        return "redirect:/minhaconta#editar";
     }
 
     @GetMapping("/{id}")
@@ -94,23 +102,23 @@ public class PetController {
         Optional<Pet> optionalPet = pr.findById(id);
         if (optionalPet.isPresent()) {
             Pet pet = optionalPet.get();
-            ModelAndView mv = new ModelAndView("formedit");
+            ModelAndView mv = new ModelAndView("minhaconta");
             mv.addObject("pet", pet);
             return mv;
         } else {
-            return new ModelAndView("redirect:/pets");
+            return new ModelAndView("redirect:/minhaconta#editar");
         }
     }
 
     @PostMapping("/{id}/update")
     public String atualiza(@PathVariable Long id,  @ModelAttribute Pet pet, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "formedit";
+            return "minhaconta";
         }
         pr.findById(id).get();
         pr.save(pet);
         model.addAttribute("pets", pr.findAll());
-        return "redirect:/pets";
+        return "redirect:/minhaconta#editar";
     }
 
 

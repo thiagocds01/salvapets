@@ -66,9 +66,8 @@
                                     <ul>
                                         <li><a href="/pet/">Home</a></li>
                                         <li><a href="/pet/pets">Pets</a></li>
-                                        <li><a href="/pet/minha-conta">Minha Conta</a></li>
+                                        <li><a href="/pet/minhaconta">Minha Conta</a></li>
                                         <li><a href="/pet/login">Login</a></li>
-                                        <li><a href="/pet/logoff">Sair</a></li>
                                     </ul>
 
                                 </div>
@@ -158,7 +157,25 @@
         </footer>
 
 
-
+      <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+      <!-- Global Vendor -->
+      <script src="<c:url value='/resources/js/vendor/modernizr-3.11.2.min.js'/>'/>"></script>
+      <script src="<c:url value='/resources/js/vendor/jquery-3.6.0.min.js'/>"></script>
+      <script src="<c:url value='/resources/js/vendor/jquery-migrate-3.3.2.min.js'/>"></script>
+      <script src="<c:url value='/resources/js/vendor/bootstrap.bundle.min.js'/>"></script>
+      <script src="<c:url value='/resources/js/vendor/jquery-ui.min.js'/>"></script>
+      <!--Plugins JS-->
+      <script src="<c:url value='/resources/js/plugins/jquery.nice-select.js'/>"></script>
+      <script src="<c:url value='/resources/js/plugins/swiper-bundle.min.js'/>"></script>
+      <script src="<c:url value='/resources/js/plugins/ion.rangeSlider.min.js'/>"></script>
+      <script src="<c:url value='/resources/js/plugins/venobox.min.js'/>"></script>
+      <script src="<c:url value='/resources/js/plugins/ajax-mail.js'/>"></script>
+      <!-- Minify Version -->
+      <!-- <script src="<c:url value='/resources/js/vendor/vendor.min.js'/>"></script> -->
+      <!-- <script src="<c:url value='/resources/js/plugins/plugins.min.js'/>"></script> -->
+      <!--Main JS (Common Activation Codes)-->
+      <script src="<c:url value='/resources/js/main.js'/>"></script>
+      <!-- <script src="<c:url value='/resources/js/main.min.js'/>"></script> -->
 
     </body>
 

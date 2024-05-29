@@ -119,6 +119,7 @@ textarea {
 
 input, textarea {
   width: 100%;
+  border: 1;
 }
 
 .ui-datepicker {
@@ -719,6 +720,14 @@ input, textarea {
 }
 
 .btn-default {
+  color: #111111;
+  background: #fff;
+  -webkit-box-shadow: 5px 10px 16px rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 5px 10px 16px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #F3F3F3;
+}
+
+#botao-editar {
   color: #111111;
   background: #fff;
   -webkit-box-shadow: 5px 10px 16px rgba(0, 0, 0, 0.1) !important;
@@ -3238,7 +3247,7 @@ table {
 
 @media (min-width: 992px) {
   .breadcrumb-wrapper--style-1 .breadcrumb-bg {
-    height: 500px;
+    height: 320px;
       }
 }
 
