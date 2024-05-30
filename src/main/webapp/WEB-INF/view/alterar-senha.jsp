@@ -68,7 +68,8 @@
                                         <li><a href="/pet/pets">Pets</a></li>
                                         <li><a href="/pet/minhaconta">Minha Conta</a></li>
                                         <li><a href="/pet/login">Login</a></li>
-                                        <li><a href="/pet/registrar">Registrar</a></li>
+                                                                                <li><a href="/pet/registrar">Registrar</a></li>
+
                                     </ul>
 
                                 </div>
@@ -79,10 +80,8 @@
         </div>
 
     </header>
-    <!-- .....:::::: End Header Section - Dark Header :::::.... -->
 
-
-    <!-- ...::: Strat Breadcrumb Section :::... -->
+<!-- ...::: Strat Breadcrumb Section :::... -->
     <div class="breadcrumb-section">
         <div class="box-wrapper">
             <div class="breadcrumb-wrapper breadcrumb-wrapper--style-1 pos-relative">
@@ -100,99 +99,67 @@
             </div>
         </div>
     </div>
-    <!-- ...::: End Breadcrumb Section :::... -->
 
-    <!-- ...:::: Start Shop List Section:::... -->
-    <div class="shop-list-section section-fluid-270 section-top-gap-100">
-        <div class="box-wrapper">
-            <div class="shop-list-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-12">
+    <div class="customer-login section-fluid-270 section-top-gap-100">
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-6 col-md-6">
+                    <div class="account_form">
 
-                            <div class="product-shop-list-items">
-                                <div class="row mb-n25">
-                                        <!-- Start Product Single Item - Style 1 -->
-                                            <div class="container-grid">
+                        <h3 class="text-center">Alterar Senha</h3>
+                        <form action="/pet/alterar-senha" method="post">
 
-                                                <c:forEach var="pet" items="${pets}">
-                                                            <div class="pet-card">
-                                                                    <img class="pet-card-img" src="<c:url value='/resources/img/Logomarca.png'/>" alt="Imagem do Pet" />
-
-                                                                <h3>${pet.nome}</h3>
-                                                                <p>Raça: ${pet.raca}</p>
-                                                                <p>Idade: ${pet.idade} anos</p>
-
-                                                            </div>
-                                                        </c:forEach>
-
-                                               </div>
-
-
-                                </div>
+                            <div class="default-form-box">
+                                <label>Senha Atual<span>*</span></label>
+                                <input type="password" id="password" name="password">
                             </div>
+                            <div class="default-form-box">
+                                <label>Nova Senha<span>*</span></label>
+                                <input type="password" id="novaSenha" name="novaSenha">
+                            </div>
+                            <div class="login_submit">
+                                <button class="btn btn-sm btn-radius btn-default mb-4" type="submit">Alterar Senha</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+        <footer class="footer-section footer-section-style-2 section-top-gap-120">
+            <div class="box-wrapper">
+                <div class="footer-wrapper section-fluid-270">
+                    <div class="container-fluid">
+
+
+                        <!-- End Footer Center  -->
+
+                        <!-- Start Footer Center  -->
+                        <div class="footer-center">
+                            <div class="footer-widgets-items">
+                                <div class="footer-widgets-single-item footer-widgets-single-item--dark">
+                                    <div id="dividerId-2" class="widget-collapse-body collapse">
+                                        <li><a href="contact.html">Home</a></li>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="footer-bottom">
+                            <p class="copyright-text copyright-text--dark">&copy; Projeto Salva Pets <span class="material-icons">favorite</span>
+                                <a href="#"
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div> <!-- ...:::: End Shop List Section:::... -->
+        </footer>
 
-    <!-- ...::: Strat Footer Section - Footer Dark :::... -->
-    <footer class="footer-section footer-section-style-2 section-top-gap-120">
-        <div class="box-wrapper">
-            <div class="footer-wrapper section-fluid-270">
-                <div class="container-fluid">
-
-                    <!-- Start Footer Center  -->
-                    <div class="footer-center d-none">
-                        <div class="footer-widgets-items">
-                            <!-- Start Footer Widget Single Item -->
-                            <div class="footer-widgets-single-item footer-widgets-single-item--dark">
-                                <h5 class="title">Páginas</h5>
-                            </div>
-                            <!-- End Footer Widget Single Item -->
-                            <!-- Start Footer Widget Single Item -->
-                            <div class="footer-widgets-single-item footer-widgets-single-item--dark">
-                                <h5 class="title">Offer</h5>
-                                <ul class="footer-nav">
-                                    <li><a href="#">Shop Vendor</a></li>
-                                    <li><a href="#">Product House</a></li>
-                                    <li><a href="#">Categories</a></li>
-                                    <li><a href="#">Delivery Areas</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Footer Widget Single Item -->
-                        </div>
-                    </div>
-                    <!-- End Footer Center  -->
-
-                    <!-- Start Footer Center  -->
-                    <div class="footer-center">
-                        <div class="footer-widgets-items">
-                            <!-- Start Footer Widget Single Item -->
-                            <div class="footer-widgets-single-item footer-widgets-single-item--dark">
-                                <div id="dividerId-2" class="widget-collapse-body collapse">
-                                    <li><a href="contact.html">Home</a></li>
-                                </div>
-                            </div>
-                            <!-- End Footer Widget Single Item --><!-- End Footer Widget Single Item -->
-
-                        </div>
-                    </div>
-                    <!-- End Footer Center  -->
-
-                    <!-- Start Footer Bottom -->
-                    <div class="footer-bottom">
-                        <p class="copyright-text copyright-text--dark">&copy; Projeto Salva Pets <span class="material-icons">favorite</span>
-                            <a href="#"
-                    </div>
-                    <!-- End Footer Bottom -->
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ...::: End Footer Section Section - Footer Dark :::... -->
 
       <!-- ::::::::::::::All JS Files here :::::::::::::: -->
       <!-- Global Vendor -->
@@ -214,6 +181,6 @@
       <script src="<c:url value='/resources/js/main.js'/>"></script>
       <!-- <script src="<c:url value='/resources/js/main.min.js'/>"></script> -->
 
-</body>
+    </body>
 
-</html>
+    </html>

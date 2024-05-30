@@ -68,6 +68,8 @@
                                         <li><a href="/pet/pets">Pets</a></li>
                                         <li><a href="/pet/minhaconta">Minha Conta</a></li>
                                         <li><a href="/pet/login">Login</a></li>
+                                                                                <li><a href="/pet/registrar">Registrar</a></li>
+
                                     </ul>
 
                                 </div>
@@ -103,6 +105,7 @@
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-6 col-md-6">
                     <div class="account_form">
+
                         <h3 class="text-center">Realizar Login</h3>
                         <form action="/pet/login" method="post">
                             <div class="default-form-box">
