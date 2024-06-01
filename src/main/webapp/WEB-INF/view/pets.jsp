@@ -122,13 +122,10 @@
                                                                 <h3>${pet.nome}</h3>
                                                                 <p>Raça: ${pet.raca}</p>
                                                                 <p>Idade: ${pet.idade} anos</p>
-
                                                             </div>
-                                                        </c:forEach>
 
-                                               </div>
-
-
+                                                </c:forEach>
+                                         </div>
                                 </div>
                             </div>
                         </div>
@@ -195,25 +192,25 @@
     <!-- ...::: End Footer Section Section - Footer Dark :::... -->
 
       <!-- ::::::::::::::All JS Files here :::::::::::::: -->
-      <!-- Global Vendor -->
-      <script src="<c:url value='/resources/js/vendor/modernizr-3.11.2.min.js'/>'/>"></script>
-      <script src="<c:url value='/resources/js/vendor/jquery-3.6.0.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/vendor/jquery-migrate-3.3.2.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/vendor/bootstrap.bundle.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/vendor/jquery-ui.min.js'/>"></script>
-      <!--Plugins JS-->
-      <script src="<c:url value='/resources/js/plugins/jquery.nice-select.js'/>"></script>
-      <script src="<c:url value='/resources/js/plugins/swiper-bundle.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/plugins/ion.rangeSlider.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/plugins/venobox.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/plugins/ajax-mail.js'/>"></script>
-      <!-- Minify Version -->
-      <!-- <script src="<c:url value='/resources/js/vendor/vendor.min.js'/>"></script> -->
-      <!-- <script src="<c:url value='/resources/js/plugins/plugins.min.js'/>"></script> -->
-      <!--Main JS (Common Activation Codes)-->
-      <script src="<c:url value='/resources/js/main.js'/>"></script>
-      <!-- <script src="<c:url value='/resources/js/main.min.js'/>"></script> -->
+            <!-- Global Vendor -->
+            <script src="<c:url value='/resources/js/vendor/modernizr-3.11.2.min.js'/>"></script>
+            <script src="<c:url value='/resources/js/vendor/jquery-3.6.0.min.js'/>"></script>
+            <script src="<c:url value='/resources/js/vendor/jquery-migrate-3.3.2.min.js'/>"></script>
+            <script src="<c:url value='/resources/js/vendor/bootstrap.bundle.min.js'/>"></script>
+            <script src="<c:url value='/resources/js/vendor/jquery-ui.min.js'/>"></script>
+            <!--Plugins JS-->
+            <script src="<c:url value='/resources/js/plugins/jquery.nice-select.js'/>"></script>
+            <script src="<c:url value='/resources/js/plugins/swiper-bundle.min.js'/>"></script>
+            <script src="<c:url value='/resources/js/plugins/ion.rangeSlider.min.js'/>"></script>
+            <script src="<c:url value='/resources/js/plugins/venobox.min.js'/>"></script>
+            <script src="<c:url value='/resources/js/plugins/ajax-mail.js'/>"></script>
+            <!-- Minify Version -->
+            <!-- <script src="<c:url value='/resources/js/vendor/vendor.min.js'/>"></script> -->
+            <!-- <script src="<c:url value='/resources/js/plugins/plugins.min.js'/>"></script> -->
+            <!--Main JS (Common Activation Codes)-->
+            <script src="<c:url value='/resources/js/main.js'/>"></script>
+            <!-- <script src="<c:url value='/resources/js/main.min.js'/>"></script> -->
 
-</body>
+          </body>
 
-</html>
+          </html>

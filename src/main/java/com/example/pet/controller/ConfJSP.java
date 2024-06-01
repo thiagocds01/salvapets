@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.time.Duration;
 
 @Configuration
 @EnableWebMvc
@@ -34,8 +33,7 @@ public class ConfJSP extends WebMvcConfigurerAdapter{
         @Override
         public void addResourceHandlers(ResourceHandlerRegistry registry) {
             registry.addResourceHandler("/resources/**")
-                    .addResourceLocations("classpath:/static/")
-                    .setCacheControl(CacheControl.maxAge(Duration.ofDays(365)));
+                    .addResourceLocations("classpath:/static/");
         }
     }
 }

@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="zxx">
    <head>
@@ -59,7 +60,6 @@
                               <li><a href="/pet/minhaconta">Minha Conta</a></li>
                               <li><a href="/pet/login">Login</a></li>
                               <li><a href="/pet/registrar">Registrar</a></li>
-
                            </ul>
                         </div>
                      </div>
@@ -97,9 +97,10 @@
                   <!-- Nav tabs -->
                   <div class="dashboard_tab_button">
                      <ul role="tablist" class="nav flex-column dashboard-list">
-                        <li><a href="#inicio" data-bs-toggle="tab" class="nav-link btn btn-sm btn-default-outline  active">teste</a></li>
+                        <li><a href="#inicio" data-bs-toggle="tab" class="nav-link btn btn-sm btn-default-outline  active">Quem somos</a></li>
                         <li><a href="#cadastrar" data-bs-toggle="tab" class="nav-link btn btn-sm btn-default-outline ">Cadastrar Pets</a></li>
                         <li><a href="#editar" data-bs-toggle="tab" class="nav-link btn btn-sm btn-default-outline ">Editar Pets</a></li>
+                        <li><a href="#alterarsenha" data-bs-toggle="tab" class="nav-link btn btn-sm btn-default-outline ">Alterar Senha</a></li>
                         <li><a href="/pet/logoff" class="nav-link btn btn-sm btn-default-outline">Sair</a></li>
                      </ul>
                   </div>
@@ -108,7 +109,9 @@
                   <!-- Tab panes -->
                   <div class="tab-content dashboard_content">
                      <div class="tab-pane fade show active" id="inicio">
-                        <h4>Bem Vindo a Salva Pets </h4>
+                        <h4><strong style="text-transform: capitalize;">${username}, </strong>Bem vindo!!</h4>
+                        <p>A Salva Pets é uma plataforma que conecta pessoas interessadas em adotar pets ou organizações não governamentais (ONGs) que atuam em prol dos animais.
+                        Além disso, a plataforma proporcionará possibilidade de realizar denúncias de maus tratos, abandono e campanhas de conscientização.</p>
                      </div>
                      <div class="tab-pane fade" id="cadastrar">
                         <h3>Cadastrar Pets</h3>
@@ -144,7 +147,7 @@
                                           ">
                                     </div>
                                     <div class="login_submit">
-                                       <button class="btn btn-sm btn-radius btn-default mb-4" type="submit">Cadastrar</button>
+                                       <button class="btn btn-sm btn-radius btn-default mb-4" type="submit" style="margin-top: 17px;">Cadastrar</button>
                                     </div>
                                  </form>
                               </div>
@@ -185,46 +188,80 @@
                                           ">
                                     </div>
                                     <div class="login_submit">
-                                       <button class="btn btn-sm btn-radius btn-default mb-4" type="submit">Atualizar</button>
+                                       <button class="btn btn-sm btn-radius btn-default mb-4" type="submit" style="margin-top: 17px;">Atualizar</button>
                                     </div>
                                  </form>
                               </div>
                            </div>
                         </div>
-
-
                         <table border="1" frame="hsides" rules="rows">
-                                                   <thead>
-                                                      <tr>
-                                                         <th>Id</th>
-                                                         <th>Nome</th>
-                                                         <th>Raça</th>
-                                                         <th>Idade</th>
-                                                         <th>Ações</th>
-                                                      </tr>
-                                                   </thead>
-                                                   <tbody>
-                                                      <c:forEach var="pet" items="${minhaconta}">
-                                                         <tr>
-                                                            <td>${pet.id}</td>
-                                                            <td>${pet.nome}</td>
-                                                            <td>${pet.raca}</td>
-                                                            <td>${pet.idade}</td>
-                                                            <td>
-                                                               <a href="/pet/${pet.id}"><button class="botao-editar" type="submit" style="
-                                                                  font-size: 14px;
-                                                                  ">Editar</button></a>
-                                                               <form action="/pet/${pet.id}/delete" method="post" style="display:inline;">
-                                                                  <button class="bbotao-editar" type="submit" style="
-                                                                     font-size: 14px;
-                                                                     "><input type="submit" value="Excluir" /></button>
-                                                               </form>
-                                                            </td>
-                                                         </tr>
-                                                      </c:forEach>
-                                                   </tbody>
-                                                </table>
+                           <thead>
+                              <tr>
+                                 <th>Id</th>
+                                 <th>Nome</th>
+                                 <th>Raça</th>
+                                 <th>Idade</th>
+                                 <th>Ações</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <c:forEach var="pet" items="${pets}">
+                                 <tr>
+                                    <td>${pet.id}</td>
+                                    <td>${pet.nome}</td>
+                                    <td>${pet.raca}</td>
+                                    <td>${pet.idade}</td>
+                                    <td>
+                                       <a href="/pet/${pet.id}"><button class="botao-editar" type="submit" style="font-size: 14px;">Editar</button></a>
+                                       <form action="/pet/${pet.id}/delete" method="post" style="display:inline;">
+                                          <button class="botao-editar" type="submit" style="font-size: 14px;"><input type="submit" value="Excluir" /></button>
+                                       </form>
+                                    </td>
+                                 </tr>
+                              </c:forEach>
+                           </tbody>
+                        </table>
                      </div>
+
+
+
+                     <div class="tab-pane fade" id="alterarsenha">
+                        <h3>Alterar senha</h3>
+                        <div class="login">
+                           <div class="login_form_container">
+                              <div class="account_form">
+                                 <form action="/pet/alterar-senha" method="post" >
+                                    <div>
+                                       <label for="senhaAtual"><strong style="text-transform: capitalize;">${username},</strong> Digite a sua senha atual:</label>
+                                       <input type="password" id="senhaAtual" name="senhaAtual" style="
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
+                                    </div>
+                                    <div>
+                                       <label for="novaSenha">Agora a sua nova senha:</label>
+                                       <input type="password" id="novaSenha" name="novaSenha" style="
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
+                                    </div>
+
+                                    <div class="login_submit">
+                                       <button class="btn btn-sm btn-radius btn-default mb-4" type="submit" style="margin-top: 17px;">Alterar Senha</button>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+
+
+
                   </div>
                </div>
             </div>
@@ -236,29 +273,7 @@
          <div class="box-wrapper">
             <div class="footer-wrapper section-fluid-270">
                <div class="container-fluid">
-                  <!-- Start Footer Center  -->
-                  <div class="footer-center d-none">
-                     <div class="footer-widgets-items">
-                        <!-- Start Footer Widget Single Item -->
-                        <div class="footer-widgets-single-item footer-widgets-single-item--dark">
-                           <h5 class="title">Páginas</h5>
-                        </div>
-                        <!-- End Footer Widget Single Item -->
-                        <!-- Start Footer Widget Single Item -->
-                        <div class="footer-widgets-single-item footer-widgets-single-item--dark">
-                           <h5 class="title">Offer</h5>
-                           <ul class="footer-nav">
-                              <li><a href="#">Shop Vendor</a></li>
-                              <li><a href="#">Product House</a></li>
-                              <li><a href="#">Categories</a></li>
-                              <li><a href="#">Delivery Areas</a></li>
-                           </ul>
-                        </div>
-                        <!-- End Footer Widget Single Item -->
-                     </div>
-                  </div>
-                  <!-- End Footer Center  -->
-                  <!-- Start Footer Center  -->
+                            <!-- Start Footer Center  -->
                   <div class="footer-center">
                      <div class="footer-widgets-items">
                         <!-- Start Footer Widget Single Item -->
@@ -283,8 +298,9 @@
       </footer>
       <!-- ...::: End Footer Section Section - Footer Dark :::... -->
       <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+      <!-- ::::::::::::::All JS Files here :::::::::::::: -->
       <!-- Global Vendor -->
-      <script src="<c:url value='/resources/js/vendor/modernizr-3.11.2.min.js'/>'/>"></script>
+      <script src="<c:url value='/resources/js/vendor/modernizr-3.11.2.min.js'/>"></script>
       <script src="<c:url value='/resources/js/vendor/jquery-3.6.0.min.js'/>"></script>
       <script src="<c:url value='/resources/js/vendor/jquery-migrate-3.3.2.min.js'/>"></script>
       <script src="<c:url value='/resources/js/vendor/bootstrap.bundle.min.js'/>"></script>

@@ -111,7 +111,7 @@
 
                             <div class="default-form-box">
                                 <label>Senha Atual<span>*</span></label>
-                                <input type="password" id="password" name="password">
+                                <input type="password" id="senhaAtual" name="senhaAtual">
                             </div>
                             <div class="default-form-box">
                                 <label>Nova Senha<span>*</span></label>
@@ -163,7 +163,7 @@
 
       <!-- ::::::::::::::All JS Files here :::::::::::::: -->
       <!-- Global Vendor -->
-      <script src="<c:url value='/resources/js/vendor/modernizr-3.11.2.min.js'/>'/>"></script>
+      <script src="<c:url value='/resources/js/vendor/modernizr-3.11.2.min.js'/>"></script>
       <script src="<c:url value='/resources/js/vendor/jquery-3.6.0.min.js'/>"></script>
       <script src="<c:url value='/resources/js/vendor/jquery-migrate-3.3.2.min.js'/>"></script>
       <script src="<c:url value='/resources/js/vendor/bootstrap.bundle.min.js'/>"></script>
