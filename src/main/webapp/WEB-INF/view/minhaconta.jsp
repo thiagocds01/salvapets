@@ -189,8 +189,10 @@
                                     </div>
                                     <div class="login_submit">
                                        <button class="btn btn-sm btn-radius btn-default mb-4" type="submit" style="margin-top: 17px;">Atualizar</button>
+                                        <a href="/pet/${pet.id}"><button class="btn btn-sm btn-radius btn-default mb-4" type="submit" style="margin-top: 17px;">Excluir</button></a>
                                     </div>
                                  </form>
+
                               </div>
                            </div>
                         </div>
@@ -213,9 +215,6 @@
                                     <td>${pet.idade}</td>
                                     <td>
                                        <a href="/pet/${pet.id}"><button class="botao-editar" type="submit" style="font-size: 14px;">Editar</button></a>
-                                       <form action="/pet/${pet.id}/delete" method="post" style="display:inline;">
-                                          <button class="botao-editar" type="submit" style="font-size: 14px;"><input type="submit" value="Excluir" /></button>
-                                       </form>
                                     </td>
                                  </tr>
                               </c:forEach>

@@ -16,6 +16,17 @@ import org.springframework.ui.Model;
 
 @Controller
 public class UsuarioController {
+
+    @GetMapping(value="/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/logoff-success")
+    public String logoffSuccess() {
+        return "logoff-success"; // Nome da página de logoff (sem extensão)
+    }
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
