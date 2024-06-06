@@ -12,8 +12,52 @@ public class Pet {
     private Long id;
     private String nome;
     private String raca;
+    private String porteRaca;
+    private String sexo;
+    private String cor;
     private int idade;
-//    private byte[] imagem; // campo base64 da imagem
+    private String historia;
+    private String imagem; // campo base64 da imagem
+
+    public String getPorteRaca() {
+        return porteRaca;
+    }
+
+    public void setPorteRaca(String porteRaca) {
+        this.porteRaca = porteRaca;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getHistoria() {
+        return historia;
+    }
+
+    public void setHistoria(String historia) {
+        this.historia = historia;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 
     // Getters e Setters
     public Long getId() {
@@ -47,12 +91,4 @@ public class Pet {
     public void setIdade(int idade) {
         this.idade = idade;
     }
-
-//    public byte[] getImagem() {
-//        return imagem;
-//    }
-//
-//    public void setImagem(byte[] imagem) {
-//        this.imagem = imagem;
-//    }
 }

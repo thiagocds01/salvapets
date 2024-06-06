@@ -70,6 +70,7 @@
                                         <li><a href="/pet/pets">Pets</a></li>
                                         <li><a href="/pet/minhaconta">Minha Conta</a></li>
                                         <li><a href="/pet/login">Login</a></li>
+                                        <li><a href="/pet/registrar">Registrar</a></li>
                                     </ul>
 
                                 </div>

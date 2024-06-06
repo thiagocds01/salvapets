@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="zxx">
    <head>
@@ -31,7 +32,7 @@
       <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>">
       <!-- Use the minified version files listed below for better performance and remove the files listed above -->
       <!-- <link rel="stylesheet" href="<c:url value='/resources/css/vendor/vendor.min.css'/>">
-      <link rel="stylesheet" href="<c:url value='/resources/css/plugins/plugins.min.css'/>">
+         <link rel="stylesheet" href="<c:url value='/resources/css/plugins/plugins.min.css'/>">
 
          </head>
 
@@ -96,10 +97,9 @@
                   <!-- Nav tabs -->
                   <div class="dashboard_tab_button">
                      <ul role="tablist" class="nav flex-column dashboard-list">
-                        <li><a href="#inicio" data-bs-toggle="tab" class="nav-link btn btn-sm btn-default-outline  active">Quem somos</a></li>
-                        <li><a href="#cadastrar" data-bs-toggle="tab" class="nav-link btn btn-sm btn-default-outline ">Cadastrar Pets</a></li>
+                        <li><a href="#" class="nav-link btn btn-sm btn-default-outline  active">Editar pets</a></li>
                         <li><a href="/pet/gerenciarpet" class="nav-link btn btn-sm btn-default-outline ">Gerenciar Pets</a></li>
-                        <li><a href="#alterarsenha" data-bs-toggle="tab" class="nav-link btn btn-sm btn-default-outline ">Alterar Senha</a></li>
+                        <li><a href="/pet/minhaconta#alterarsenha" data-bs-toggle="tab" class="nav-link btn btn-sm btn-default-outline ">Alterar Senha</a></li>
                         <li><a href="/pet/logoff" class="nav-link btn btn-sm btn-default-outline">Sair</a></li>
                      </ul>
                   </div>
@@ -108,73 +108,14 @@
                   <!-- Tab panes -->
                   <div class="tab-content dashboard_content">
                      <div class="tab-pane fade show active" id="inicio">
-                        <h4><strong style="text-transform: capitalize;">${username}, </strong>Bem vindo!!</h4>
-                        <p>A Salva Pets é uma plataforma que conecta pessoas interessadas em adotar pets ou organizações não governamentais (ONGs) que atuam em prol dos animais.
-                           Além disso, a plataforma proporcionará possibilidade de realizar denúncias de maus tratos, abandono e campanhas de conscientização.
-                        </p>
-                     </div>
-                     <div class="tab-pane fade" id="cadastrar">
-                        <h3>Cadastrar Pets</h3>
+
                         <div class="login">
                            <div class="login_form_container">
                               <div class="account_form">
-                                           <form action="/pet/cadastrar" method="post" enctype="multipart/form-data">
-                                               <div class="form-group">
-                                                   <label for="nome">Nome:</label>
-                                                   <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Pet" required>
-                                               </div>
-                                               <div class="form-group" style="margin-bottom: 10px;">
-                                                   <label for="raca">Raça:</label>
-                                                   <input type="text" class="form-control" id="raca" name="raca" placeholder="Raça do Pet" required>
-                                               </div>
-                                               <div class="form-group" style="margin-bottom: 10px;">
-                                                   <label for="porteRaca">Porte da Raça:</label>
-                                                   <select class="form-control" id="porteRaca" name="porteRaca" required>
-                                                       <option value="">Selecione</option>
-                                                       <option value="pequeno">Pequeno</option>
-                                                       <option value="medio">Médio</option>
-                                                       <option value="grande">Grande</option>
-                                                   </select>
-                                               </div>
-                                               <div class="form-group" style="margin-bottom: 10px;">
-                                                   <label for="sexo">Sexo:</label>
-                                                   <select class="form-control" id="sexo" name="sexo" required>
-                                                       <option value="">Selecione</option>
-                                                       <option value="macho">Macho</option>
-                                                       <option value="femea">Fêmea</option>
-                                                   </select>
-                                               </div>
-                                               <div class="form-group" style="margin-bottom: 10px;">
-                                                   <label for="cor">Cor:</label>
-                                                   <input type="text" class="form-control" id="cor" name="cor" placeholder="Cor do Pet" required>
-                                               </div>
-                                               <div class="form-group" style="margin-bottom: 10px;">
-                                                   <label for="idade">Idade:</label>
-                                                   <input type="number" class="form-control" id="idade" name="idade" placeholder="Idade do Pet" required>
-                                               </div>
-                                               <div class="form-group" style="margin-bottom: 10px;">
-                                                   <label for="historia">História:</label>
-                                                   <textarea class="form-control" id="historia" name="historia" placeholder="História do Pet" rows="3" required></textarea>
-                                               </div>
-                                               <div class="form-group" style="margin-bottom: 10px;">
-                                                   <label for="imagem">Imagem:</label>
-                                                   <input type="file" class="form-control-file" id="imagem" name="imagem" accept="image/*">
-                                               </div>
-                                               <button type="submit" class="btn btn-sm btn-radius btn-default mb-4">Cadastrar</button>
-                                           </form>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="tab-pane fade" id="alterarsenha">
-                        <h3>Alterar senha</h3>
-                        <div class="login">
-                           <div class="login_form_container">
-                              <div class="account_form">
-                                 <form action="/pet/alterar-senha" method="post" >
+                                 <form action="/pet/cadastrar" method="post" >
                                     <div>
-                                       <label for="senhaAtual"><strong style="text-transform: capitalize;">${username},</strong> Digite a sua senha atual:</label>
-                                       <input type="password" id="senhaAtual" name="senhaAtual" style="
+                                       <label for="nome">Nome:</label>
+                                       <input type="text" id="nome" name="nome" style="
                                           border-style: solid;
                                           border-width: 1px;
                                           border-radius: 13px;
@@ -182,8 +123,17 @@
                                           ">
                                     </div>
                                     <div>
-                                       <label for="novaSenha">Agora a sua nova senha:</label>
-                                       <input type="password" id="novaSenha" name="novaSenha" style="
+                                       <label for="raca">Raça:</label>
+                                       <input type="text" id="raca" name="raca"style="
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
+                                    </div>
+                                    <div>
+                                       <label for="idade">Idade:</label>
+                                       <input type="number" id="idade" name="idade"style="
                                           border-style: solid;
                                           border-width: 1px;
                                           border-radius: 13px;
@@ -191,13 +141,33 @@
                                           ">
                                     </div>
                                     <div class="login_submit">
-                                       <button class="btn btn-sm btn-radius btn-default mb-4" type="submit" style="margin-top: 17px;">Alterar Senha</button>
+                                       <button class="btn btn-sm btn-radius btn-default mb-4" type="submit" style="margin-top: 17px;">Cadastrar</button>
                                     </div>
                                  </form>
                               </div>
                            </div>
                         </div>
+
+
                      </div>
+
+                     <div class="tab-pane fade" id="editar">
+                        <h3>Editar Cadastros de Pets</h3>
+                        <div class="login">
+                           <div class="login_form_container">
+                              <div class="account_form">
+
+
+
+
+                     </div>
+
+
+
+
+
+
+
                   </div>
                </div>
             </div>
@@ -209,7 +179,7 @@
          <div class="box-wrapper">
             <div class="footer-wrapper section-fluid-270">
                <div class="container-fluid">
-                  <!-- Start Footer Center  -->
+                            <!-- Start Footer Center  -->
                   <div class="footer-center">
                      <div class="footer-widgets-items">
                         <!-- Start Footer Widget Single Item -->
@@ -235,22 +205,6 @@
       <!-- ...::: End Footer Section Section - Footer Dark :::... -->
       <!-- ::::::::::::::All JS Files here :::::::::::::: -->
       <!-- ::::::::::::::All JS Files here :::::::::::::: -->
-      <!-- Global Vendor -->
-      <script src="<c:url value='/resources/js/vendor/modernizr-3.11.2.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/vendor/jquery-3.6.0.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/vendor/jquery-migrate-3.3.2.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/vendor/bootstrap.bundle.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/vendor/jquery-ui.min.js'/>"></script>
-      <!--Plugins JS-->
-      <script src="<c:url value='/resources/js/plugins/swiper-bundle.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/plugins/ion.rangeSlider.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/plugins/venobox.min.js'/>"></script>
-      <script src="<c:url value='/resources/js/plugins/ajax-mail.js'/>"></script>
-      <!-- Minify Version -->
-      <!-- <script src="<c:url value='/resources/js/vendor/vendor.min.js'/>"></script> -->
-      <!-- <script src="<c:url value='/resources/js/plugins/plugins.min.js'/>"></script> -->
-      <!--Main JS (Common Activation Codes)-->
-      <script src="<c:url value='/resources/js/main.js'/>"></script>
-      <!-- <script src="<c:url value='/resources/js/main.min.js'/>"></script> -->
+
       </body>
 </html>

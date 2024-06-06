@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/login", "/resources/**","/pets").permitAll() // Permite acesso sem autenticação
+                .antMatchers("/", "/login", "/resources/**","/pets","/editarpet","registrar").permitAll() // Permite acesso sem autenticação
                 .anyRequest().authenticated() // Todas as outras URLs exigem autenticação
                 .and()
                 .formLogin()

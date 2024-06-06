@@ -115,13 +115,14 @@
                                         <!-- Start Product Single Item - Style 1 -->
                                             <div class="container-grid">
 
-                                                <c:forEach var="pet" items="${pets}">
+                                                <c:forEach var="pet" items="${petsedit}">
                                                             <div class="pet-card">
                                                                     <img class="pet-card-img" src="<c:url value='/resources/img/Logomarca.png'/>" alt="Imagem do Pet" />
 
                                                                 <h3>${pet.nome}</h3>
                                                                 <p>Raça: ${pet.raca}</p>
                                                                 <p>Idade: ${pet.idade} anos</p>
+                                                                                                                                                       <a href="/pet/${pet.id}"><button class="botao-editar" type="submit" style="font-size: 14px;">Editar</button></a>
 
                                                             </div>
 

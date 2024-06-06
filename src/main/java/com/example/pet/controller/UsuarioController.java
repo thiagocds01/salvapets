@@ -47,14 +47,13 @@ public class UsuarioController {
 
         Usuario newUser = new Usuario();
         newUser.setUsername(username);
-        newUser.setPassword(passwordEncoder.encode(password)); // Codifica a senha antes de salvar no banco de dados
+        newUser.setPassword(passwordEncoder.encode(password));
         usuarioRepository.save(newUser);
 
         return "redirect:/login?registroSuccess";
     }
 
 
-    // Endpoint para exibir o formulário de alteração de senha
     @GetMapping("/alterar-senha")
     public String exibirFormularioAlterarSenha() {
         return "minhaconta";
@@ -63,21 +62,16 @@ public class UsuarioController {
     @PostMapping("/alterar-senha")
     public String alterarSenha(@RequestParam("senhaAtual") String senhaAtual,
                                @RequestParam("novaSenha") String novaSenha) {
-        // Obtém o usuário autenticado da sessão
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
 
-        // Recupera o usuário do banco de dados
         Usuario usuario = usuarioRepository.findByUsername(username);
 
-        // Verifica se a senha atual corresponde à senha armazenada
         if (usuario != null && passwordEncoder.matches(senhaAtual, usuario.getPassword())) {
-            // Atualiza a senha com a nova senha fornecida
             usuario.setPassword(passwordEncoder.encode(novaSenha));
             usuarioRepository.save(usuario);
             return "redirect:/minhaconta?senhaAlterada";
         } else {
-            // Se a senha atual estiver incorreta, redireciona para o formulário com uma mensagem de erro
             return "redirect:/minhaconta?error";
         }
     }
@@ -90,7 +84,7 @@ public class UsuarioController {
             username = ((UserDetails) authentication.getPrincipal()).getUsername();
         }
         model.addAttribute("username", username);
-        return "minhaconta"; // Nome da sua página JSP
+        return "minhaconta";
     }
 
 }

@@ -114,7 +114,7 @@ textarea {
   background: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  padding: 0;
+  padding: 3;
 }
 
 input, textarea {
@@ -229,8 +229,8 @@ input, textarea {
                 }
 
                                 .pet-button-cadastro {
-                                    margin-top: 8px;
-                                    padding: 8px 16px;
+                                    margin-top: 5px;
+                                    padding: 3px 8px;
                                     background-color: #3CA6A6;
                                     color: white;
                                     border: none;
