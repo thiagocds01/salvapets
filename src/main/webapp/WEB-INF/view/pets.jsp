@@ -118,9 +118,12 @@
                                                             <div class="pet-card">
                                                                 <img class="pet-card-img" src="<c:url value='${pet.imagem}' />" alt="Imagem do Pet" />
                                                                 <h3>${pet.nome}</h3>
-                                                                <p>Raça: ${pet.raca}</p>
-                                                                <p>Idade: ${pet.idade} anos</p>
-                                                                <p>Idade: ${pet.imagem} anos</p>
+                                                                <p style="text-transform: capitalize;"><strong>Raça:</strong> ${pet.raca}</p>
+                                                                <p style="text-transform: capitalize;"><strong>Porte da raça:</strong> ${pet.porteRaca} </p>
+                                                                <p style="text-transform: capitalize;"><strong>Sexo:</strong> ${pet.sexo} </p>
+                                                                <p style="text-transform: capitalize;"><strong>Cor:</strong> ${pet.cor} </p>
+                                                                <p style="text-transform: capitalize;"><strong>Idade:</strong> ${pet.idade} anos</p>
+                                                                <p><strong>Historia:</strong> ${pet.historia} </p>
                                                            </div>
 
                                                 </c:forEach>

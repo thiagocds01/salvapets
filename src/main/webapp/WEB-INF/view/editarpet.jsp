@@ -112,10 +112,10 @@
                         <div class="login">
                            <div class="login_form_container">
                               <div class="account_form">
-                                 <form action="/pet/cadastrar" method="post" >
+                                 <form action="/pet/${pet.id}/update" method="post" enctype="multipart/form-data">
                                     <div>
                                        <label for="nome">Nome:</label>
-                                       <input type="text" id="nome" name="nome" style="
+                                       <input value="${pet.nome}" type="text" id="nome" name="nome" style="
                                           border-style: solid;
                                           border-width: 1px;
                                           border-radius: 13px;
@@ -124,7 +124,34 @@
                                     </div>
                                     <div>
                                        <label for="raca">Raça:</label>
-                                       <input type="text" id="raca" name="raca"style="
+                                       <input value="${pet.raca}" type="text" id="raca" name="raca"style="
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
+                                    </div>
+                                    <div>
+                                       <label for="porteRaca">Porte da Raça:</label>
+                                       <input value="${pet.porteRaca}" type="text" id="porteRaca" name="porteRaca"style="
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
+                                    </div>
+                                    <div>
+                                       <label for="sexo">Sexo:</label>
+                                       <input value="${pet.sexo}" type="text" id="sexo" name="sexo"style="
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
+                                    </div>
+                                    <div>
+                                       <label for="cor">Cor:</label>
+                                       <input value="${pet.cor}" type="text" id="cor" name="cor"style="
                                           border-style: solid;
                                           border-width: 1px;
                                           border-radius: 13px;
@@ -133,7 +160,26 @@
                                     </div>
                                     <div>
                                        <label for="idade">Idade:</label>
-                                       <input type="number" id="idade" name="idade"style="
+                                       <input value="${pet.idade}" type="number" id="idade" name="idade"style="
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
+                                    </div>
+                                    <div>
+                                       <label for="historia">Historia:</label>
+                                       <input value="${pet.historia}" type="textarea" id="historia" name="historia"style="
+                                          border-style: solid;
+                                          border-width: 1px;
+                                          border-radius: 13px;
+                                          border-color: #264653;
+                                          ">
+                                    </div>
+
+                                    <div>
+                                       <label for="imagem">Imagem:</label>
+                                       <input value="${pet.imagem}" type="file" id="imagem" name="imagem"style="
                                           border-style: solid;
                                           border-width: 1px;
                                           border-radius: 13px;
@@ -141,7 +187,7 @@
                                           ">
                                     </div>
                                     <div class="login_submit">
-                                       <button class="btn btn-sm btn-radius btn-default mb-4" type="submit" style="margin-top: 17px;">Cadastrar</button>
+                                       <button class="btn btn-sm btn-radius btn-default mb-4" type="submit" style="margin-top: 17px;">Atualizar</button>
                                     </div>
                                  </form>
                               </div>

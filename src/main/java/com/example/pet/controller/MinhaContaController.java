@@ -5,10 +5,19 @@ import com.example.pet.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Objects;
 import java.util.Optional;
 
 
@@ -57,15 +66,53 @@ public class MinhaContaController {
         }
     }
 
+//    @PostMapping("/{id}/update")
+//    public String atualiza(@PathVariable Long id,  @ModelAttribute Pet pet, BindingResult result, Model model) {
+//        if (result.hasErrors()) {
+//            return "editarpet";
+//        }
+//        pr.findById(id).get();
+//        pr.save(pet);
+//        model.addAttribute("pets", pr.findAll());
+//        return "redirect:/editarpet";
+//    }
+
+
     @PostMapping("/{id}/update")
-    public String atualiza(@PathVariable Long id,  @ModelAttribute Pet pet, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "editarpet";
+    public String atualiza(@PathVariable Long id, @ModelAttribute Pet pet, BindingResult result, @RequestParam("imagem") MultipartFile imagem, Model model) {
+
+        try {
+            if (!imagem.isEmpty()) {
+                String filename = StringUtils.cleanPath(Objects.requireNonNull(imagem.getOriginalFilename()));
+                String UPLOAD_DIR = "C:/Users/Thiago Silva/IdeaProjects/salvapets/src/main/resources/static/img/pets";
+                Path uploadPath = Paths.get(UPLOAD_DIR);
+
+                if (!Files.exists(uploadPath)) {
+                    Files.createDirectories(uploadPath);
+                }
+
+                try (InputStream inputStream = imagem.getInputStream()) {
+                    Path filePath = uploadPath.resolve(filename);
+                    Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+                }
+
+                String imagePath = "/resources/img/pets/" + filename;
+                pet.setImagem(imagePath);
+            }
+
+            pet.setId(id);
+            pr.save(pet);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        pr.findById(id).get();
-        pr.save(pet);
+
         model.addAttribute("pets", pr.findAll());
         return "redirect:/editarpet";
+    }
+
+    @GetMapping(value = "/editarpet")
+    public String editarpet() {
+        return "editarpet";
     }
 
 }
