@@ -68,8 +68,7 @@
                                         <li><a href="/pet/pets">Pets</a></li>
                                         <li><a href="/pet/minhaconta">Minha Conta</a></li>
                                         <li><a href="/pet/login">Login</a></li>
-                                                                                <li><a href="/pet/registrar">Registrar</a></li>
-
+                                        <li><a href="/pet/registrar">Registrar</a></li>
                                     </ul>
 
                                 </div>
@@ -80,19 +79,47 @@
         </div>
 
     </header>
+    <!-- .....:::::: End Header Section - Dark Header :::::.... -->
 
-<!-- ...::: Strat Breadcrumb Section :::... -->
-    <div class="breadcrumb-section">
+    <!-- ...::: Strat Hero Slider Section :::... -->
+    <div class="hero-slider-section hero-slider-light">
         <div class="box-wrapper">
-            <div class="breadcrumb-wrapper breadcrumb-wrapper--style-1 pos-relative">
-                <div class="breadcrumb-bg" style="">
-                    <img src="<c:url value='/resources/img/blog/blog-thumbnail/teste.jpg'/>"
+            <div class="hero-slider-wrapper">
+                <div class="">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="hero-slider">
+                                <!-- Slider main container -->
+                                <div class="swiper-container">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper">
+                                        <!-- Slides -->
+                                        <!-- Start Hero Slider Single Item -->
+                                        <div class="hero-slider-single-item--style-1 swiper-slide hero-bg">
+                                            <div class="image">
+                                                <img class="img-fluid" src="<c:url value='resources/img/imagem-login.png'/>" width="469" height="760" loading="lazy" alt="hero-image-1">
+                                            </div>
+                                            <div class="image-shape"></div>
+                                            <div class="content-box">
+                                                <div class="row">
+                                                    <div class="col-xl-5 offset-xl-1 col-lg-5 col-md-8 offset-md-1 col-10 ">
+                                                        <div class="content">
+                                                            <h2 class="title">Você pode se apaixonar agora por um pet </h2>
+                                                            <a href="/pet/pets" class="btn btn-lg btn-default">Buscar pets</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hero-slider-shape hero-slider-top-shape"><img class="img-fluid" src="<c:url value='resources/img/icons/hero-slider-top-shape.svg'/>" width="113" height="107" loading="lazy" alt="hero-shape-1"></div>
+                                            <div class="hero-slider-shape hero-slider-bottom-shape"><img class="img-fluid" src="<c:url value='resources/img/icons/hero-slider-bottom-shape.svg'/>" width="221" height="234" loading="lazy" alt="hero-shape-1"></div>
+                                        </div>
+                                        <!-- End Hero Slider Single Item -->
 
-                </div>
-                <div class="breadcrumb-content section-fluid-270">
-                    <div class="breadcrumb-wrapper">
-                        <div class="content">
-                            <h2 class="title"><span class="text-mark">Salva Pets!</span><br> </h2>
+
+                                    </div>
+                                    <!-- If we need pagination -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,38 +127,8 @@
         </div>
     </div>
 
-    <div class="customer-login section-fluid-270 section-top-gap-100">
-        <div class="container-fluid">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-lg-6 col-md-6">
-                    <div class="account_form">
-
-                        <h3 class="text-center">Realizar Login</h3>
-                        <form action="/pet/login" method="post">
-                            <div class="default-form-box">
-                                <label>Usuário <span>*</span></label>
-                                <input type="text" id="username" name="username">
-                            </div>
-                            <div class="default-form-box">
-                                <label>Senha<span>*</span></label>
-                                <input type="password" id="password" name="password">
-                            </div>
-                            <div class="login_submit">
-                                <button class="btn btn-sm btn-radius btn-default mb-4" type="submit">Entrar</button>
-
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-
-
     <!-- ...::: Strat Footer Section - Footer Dark :::... -->
-    <footer class="footer-section footer-section-style-2 section-top-gap-120">
+    <footer class="footer-section footer-section-style-2">
         <div class="box-wrapper">
             <div class="footer-wrapper section-fluid-270">
                 <div class="container-fluid">

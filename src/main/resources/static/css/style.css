@@ -1723,9 +1723,9 @@ table {
 }
 
 .hero-bg {
-  background-color: #A8DADC;
+  background-color: #86dacb;
   height: 710px;
-  border-radius: 40px;
+  border-radius: 0px;
 }
 
 @media (min-width: 992px) {
@@ -3255,9 +3255,8 @@ table {
 }
 
 .breadcrumb-wrapper--style-1 .breadcrumb-bg img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .breadcrumb-wrapper--style-1 .breadcrumb-content {
@@ -6016,17 +6015,6 @@ Pages - Contact
   .footer-widgets-single-item .title {
     display: block;
   }
-}
-
-.footer-widgets-single-item .title::after {
-  position: absolute;
-  content: "";
-  width: 20px;
-  height: 2px;
-  border-radius: 100px;
-  background: #457B9D;
-  left: 0;
-  bottom: -6px;
 }
 
 .footer-widgets-single-item .collapsed-title {

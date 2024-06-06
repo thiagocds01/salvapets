@@ -28,7 +28,7 @@ public class PetController {
 
     @GetMapping(value = "/")
     public String home() {
-        return "pets";
+        return "home";
     }
 
     @RequestMapping(value = "/pets")

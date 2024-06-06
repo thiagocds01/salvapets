@@ -86,9 +86,8 @@
     <div class="breadcrumb-section">
         <div class="box-wrapper">
             <div class="breadcrumb-wrapper breadcrumb-wrapper--style-1 pos-relative">
-                <div class="breadcrumb-bg" style="">
+                <div class="breadcrumb-bg">
                     <img src="<c:url value='/resources/img/blog/blog-thumbnail/teste.jpg'/>"
-
                 </div>
                 <div class="breadcrumb-content section-fluid-270">
                     <div class="breadcrumb-wrapper">
@@ -137,6 +136,7 @@
         </div>
     </div> <!-- ...:::: End Shop List Section:::... -->
 
+
     <!-- ...::: Strat Footer Section - Footer Dark :::... -->
     <footer class="footer-section footer-section-style-2 section-top-gap-120">
         <div class="box-wrapper">
@@ -144,48 +144,26 @@
                 <div class="container-fluid">
 
                     <!-- Start Footer Center  -->
-                    <div class="footer-center d-none">
-                        <div class="footer-widgets-items">
-                            <!-- Start Footer Widget Single Item -->
-                            <div class="footer-widgets-single-item footer-widgets-single-item--dark">
-                                <h5 class="title">Páginas</h5>
-                            </div>
-                            <!-- End Footer Widget Single Item -->
-                            <!-- Start Footer Widget Single Item -->
-                            <div class="footer-widgets-single-item footer-widgets-single-item--dark">
-                                <h5 class="title">Offer</h5>
-                                <ul class="footer-nav">
-                                    <li><a href="#">Shop Vendor</a></li>
-                                    <li><a href="#">Product House</a></li>
-                                    <li><a href="#">Categories</a></li>
-                                    <li><a href="#">Delivery Areas</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Footer Widget Single Item -->
-                        </div>
-                    </div>
-                    <!-- End Footer Center  -->
-
-                    <!-- Start Footer Center  -->
                     <div class="footer-center">
-                        <div class="footer-widgets-items">
                             <!-- Start Footer Widget Single Item -->
-                            <div class="footer-widgets-single-item footer-widgets-single-item--dark">
-                                <div id="dividerId-2" class="widget-collapse-body collapse">
-                                    <li><a href="contact.html">Home</a></li>
+                            <div style="text-align: center; color:black;" class="footer-widgets-single-item footer-widgets-single-item--dark">
+                            <h2 class="title" style="text-align: center; color:black;">Desenvolvedores </h2>
+                                    <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> Lucas Carlos Rodex Campos</i><br>
+                                    <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> Ramisés Jônata de Assis Melo</i><br>
+                                    <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> Reginaldo Napole</i><br>
+                                    <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> Thiago Conceição</i><br>
+
+
+
                                 </div>
                             </div>
                             <!-- End Footer Widget Single Item --><!-- End Footer Widget Single Item -->
-
-                        </div>
                     </div>
                     <!-- End Footer Center  -->
 
                     <!-- Start Footer Bottom -->
-                    <div class="footer-bottom">
-                        <p class="copyright-text copyright-text--dark">&copy; Projeto Salva Pets <span class="material-icons">favorite</span>
-                            <a href="#"
-                    </div>
+                        <p style="text-align: center;padding-bottom: 10px; font-size:10px;" class="copyright-text copyright-text--dark">&copy; Projeto Salva Pets <i style="color:red" class="bi bi-heart-fill"></i>
+
                     <!-- End Footer Bottom -->
                 </div>
             </div>
@@ -212,6 +190,8 @@
             <!--Main JS (Common Activation Codes)-->
             <script src="<c:url value='/resources/js/main.js'/>"></script>
             <!-- <script src="<c:url value='/resources/js/main.min.js'/>"></script> -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 
           </body>
 
