@@ -158,7 +158,7 @@
                                                </div>
                                                <div class="form-group" style="margin-bottom: 10px;">
                                                    <label for="imagem">Imagem:</label>
-                                                   <input type="file" class="form-control-file" id="imagem" name="imagem" accept="image/*">
+                                                   <input type="file" class="form-control-file" name="imagem" accept="image/*">
                                                </div>
                                                <button type="submit" class="btn btn-sm btn-radius btn-default mb-4">Cadastrar</button>
                                            </form>

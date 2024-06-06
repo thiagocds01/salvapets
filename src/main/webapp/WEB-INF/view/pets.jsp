@@ -109,7 +109,6 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-12">
-
                             <div class="product-shop-list-items">
                                 <div class="row mb-n25">
                                         <!-- Start Product Single Item - Style 1 -->
@@ -117,13 +116,12 @@
 
                                                 <c:forEach var="pet" items="${pets}">
                                                             <div class="pet-card">
-                                                                    <img class="pet-card-img" src="<c:url value='/resources/img/Logomarca.png'/>" alt="Imagem do Pet" />
-
+                                                                <img class="pet-card-img" src="<c:url value='${pet.imagem}' />" alt="Imagem do Pet" />
                                                                 <h3>${pet.nome}</h3>
                                                                 <p>Raça: ${pet.raca}</p>
                                                                 <p>Idade: ${pet.idade} anos</p>
-
-                                                            </div>
+                                                                <p>Idade: ${pet.imagem} anos</p>
+                                                           </div>
 
                                                 </c:forEach>
                                          </div>
