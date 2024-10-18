@@ -1,23 +1,38 @@
 package com.example.pet.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.validator.constraints.Length;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column (nullable = false)
+    @NotEmpty (message = "O nome deverá ser informado!")
+    @Length(min = 3, max = 20, message = "O nome deve ter entre 3 e 20 caracteres!")
     private String nome;
+
+    @Column (nullable = false)
+    @NotEmpty (message = "A raça deverá ser informada!")
+    @Length(min = 3, max = 20, message = "A raça deve ter entre 3 e 20 caracteres!")
     private String raca;
+
+    @Column (nullable = false)
+    @NotEmpty (message = "O porte da raça deverá ser informada!")
+    @Length(min = 3, max = 20, message = "O porte da raça ter entre 3 e 20 caracteres!")
     private String porteRaca;
+
     private String sexo;
     private String cor;
     private int idade;
     private String historia;
     private String imagem; // campo base64 da imagem
+
+
 
     public String getPorteRaca() {
         return porteRaca;
