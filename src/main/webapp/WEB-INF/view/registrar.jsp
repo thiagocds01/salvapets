@@ -1,10 +1,7 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
-<html lang="zxx">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -108,19 +105,40 @@
 
                         <h3 class="text-center">Criar conta</h3>
                         <form action="/pet/registrar" method="post">
-                            <div class="default-form-box">
-                                <label>Usuario<span>*</span></label>
-                                <input type="text" id="username" name="username">
+                            <div class="form-group">
+                                <label for="username">Nome de Usuário:</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
                             </div>
-                            <div class="default-form-box">
-                                <label>Senha<span>*</span></label>
-                                <input type="password" id="password" name="password">
-                            </div>
-                            <div class="login_submit">
-                                <button class="btn btn-sm btn-radius btn-default mb-4" type="submit">Criar</button>
 
+                            <div class="form-group">
+                                <label for="password">Senha:</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
+
+                            <div class="form-group">
+                                <label for="tipoUsuario">Tipo de Usuário:</label>
+                                <select class="form-control" id="tipoUsuario" name="tipoUsuario" onchange="toggleOngField()">
+                                    <option value="PESSOA_FISICA">Pessoa Física</option>
+                                    <option value="ONG">ONG</option>
+                                </select>
+                            </div>
+
+                            <!-- Campo de seleção de ONG, mostrado apenas para ONG -->
+                            <div class="form-group" id="ongField" style="display: none;">
+                                <label for="ongId">Selecione a ONG:</label>
+                                <select class="form-control" id="ongId" name="ongId">
+                                    <option value="">Selecione uma ONG</option>
+                                    <c:forEach var="ong" items="${ongs}">
+                                        <option value="${ong.id}">${ong.nome}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Registrar</button>
                         </form>
+
+
+
                     </div>
                 </div>
             </div>
@@ -165,6 +183,18 @@
     <!-- ...::: End Footer Section Section - Footer Dark :::... -->
 
       <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+
+                              <script>
+                                  function toggleOngField() {
+                                      const tipoUsuario = document.getElementById("tipoUsuario").value;
+                                      const ongField = document.getElementById("ongField");
+                                      if (tipoUsuario === "ONG") {
+                                          ongField.style.display = "block";
+                                      } else {
+                                          ongField.style.display = "none";
+                                      }
+                                  }
+                              </script>
             <!-- Global Vendor -->
             <script src="<c:url value='/resources/js/vendor/modernizr-3.11.2.min.js'/>"></script>
             <script src="<c:url value='/resources/js/vendor/jquery-3.6.0.min.js'/>"></script>
