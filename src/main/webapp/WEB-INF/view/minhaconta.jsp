@@ -156,10 +156,15 @@
                                                    <label for="historia">História:</label>
                                                    <textarea class="form-control" id="historia" name="historia" placeholder="História do Pet" rows="3" required></textarea>
                                                </div>
-                                               <div class="form-group" style="margin-bottom: 10px;">
-                                                   <label for="imagem">Imagem:</label>
-                                                   <input type="file" class="form-control-file" name="imagem" accept="image/*">
-                                               </div>
+                                                   <div class="form-group">
+                                                       <label for="imagem">Selecione uma imagem</label>
+                                                       <input type="file" class="form-control-file" id="imagem" name="imagem" accept="image/*" onchange="previewImage(event)">
+                                                   </div>
+
+                                                   <!-- Local onde a imagem será exibida -->
+                                                   <div class="form-group">
+                                                       <img id="imagePreview" src="#" alt="Pré-visualização da Imagem" style="display:none; max-width: 300px; max-height: 300px; margin-top: 20px;">
+                                                   </div>
                                                <button type="submit" class="btn btn-sm btn-radius btn-default mb-4">Cadastrar</button>
                                            </form>
                               </div>
@@ -238,6 +243,29 @@
         </div>
     </footer>
     <!-- ...::: End Footer Section Section - Footer Dark :::... -->
+
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const imagePreview = document.getElementById('imagePreview');
+
+            // Verifica se o arquivo foi selecionado
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                // Define o que fazer quando o arquivo for carregado
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result; // Define a URL da imagem no elemento img
+                    imagePreview.style.display = 'block'; // Mostra a imagem
+                };
+
+                // Carrega a imagem
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                imagePreview.style.display = 'none'; // Esconde a imagem se nenhum arquivo for selecionado
+            }
+        }
+    </script>
 
       <!-- ::::::::::::::All JS Files here :::::::::::::: -->
             <!-- Global Vendor -->

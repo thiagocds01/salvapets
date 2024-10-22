@@ -66,49 +66,27 @@ public class MinhaContaController {
         }
     }
 
-//    @PostMapping("/{id}/update")
-//    public String atualiza(@PathVariable Long id,  @ModelAttribute Pet pet, BindingResult result, Model model) {
-//        if (result.hasErrors()) {
-//            return "editarpet";
-//        }
-//        pr.findById(id).get();
-//        pr.save(pet);
-//        model.addAttribute("pets", pr.findAll());
-//        return "redirect:/editarpet";
-//    }
-
-
     @PostMapping("/{id}/update")
     public String atualiza(@PathVariable Long id, @ModelAttribute Pet pet, BindingResult result, @RequestParam("imagem") MultipartFile imagem, Model model) {
 
         try {
             if (!imagem.isEmpty()) {
-                String filename = StringUtils.cleanPath(Objects.requireNonNull(imagem.getOriginalFilename()));
-                String UPLOAD_DIR = "C:/Users/Thiago Silva/IdeaProjects/salvapets/src/main/resources/static/img/pets";
-                Path uploadPath = Paths.get(UPLOAD_DIR);
-
-                if (!Files.exists(uploadPath)) {
-                    Files.createDirectories(uploadPath);
-                }
-
-                try (InputStream inputStream = imagem.getInputStream()) {
-                    Path filePath = uploadPath.resolve(filename);
-                    Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-                }
-
-                String imagePath = "/resources/img/pets/" + filename;
-                pet.setImagem(imagePath);
+                // Converte a imagem em um array de bytes
+                byte[] imageBytes = imagem.getBytes();
+                pet.setImagem(imageBytes); // Armazena os bytes da imagem diretamente no banco de dados
             }
 
-            pet.setId(id);
-            pr.save(pet);
+            pet.setId(id); // Define o ID do pet para garantir a atualização do registro correto
+            pr.save(pet); // Salva a entidade 'Pet' no banco de dados
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Exibe o erro no console
         }
 
+        // Atualiza o modelo com a lista de pets atualizada
         model.addAttribute("pets", pr.findAll());
-        return "redirect:/editarpet";
+        return "redirect:/editarpet"; // Redireciona para a página de edição de pets
     }
+
 
     @GetMapping(value = "/editarpet")
     public String editarpet() {

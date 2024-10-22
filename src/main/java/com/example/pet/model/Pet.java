@@ -30,7 +30,11 @@ public class Pet {
     private String cor;
     private int idade;
     private String historia;
-    private String imagem; // campo base64 da imagem
+
+    //private String imagem; // campo base64 da imagem
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] imagem; // campo base64 da imagem
 
 
 
@@ -66,11 +70,11 @@ public class Pet {
         this.historia = historia;
     }
 
-    public String getImagem() {
+    public byte[] getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
 
