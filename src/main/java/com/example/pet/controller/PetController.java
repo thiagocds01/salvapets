@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
+
+
 import com.example.pet.model.Pet;
 import com.example.pet.repository.PetRepository;
 
@@ -55,33 +59,26 @@ public class PetController {
 
     @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
     public String cadastrar(@ModelAttribute("pet") Pet pet, BindingResult result, @RequestParam("imagem") MultipartFile imagem) {
-
         try {
             if (!imagem.isEmpty()) {
-                // Salvar arquivo no diretório
-                String filename = StringUtils.cleanPath(Objects.requireNonNull(imagem.getOriginalFilename()));
-                String UPLOAD_DIR = "C:/Users/Thiago Silva/IdeaProjects/salvapets/src/main/resources/static/img/pets"; // Caminho relativo ao diretório de recursos
-                Path uploadPath = Paths.get(UPLOAD_DIR);
-
-                // Verifica se o diretório existe, caso contrário, cria-o
-                if (!Files.exists(uploadPath)) {
-                    Files.createDirectories(uploadPath);
-                }
-
-                try (InputStream inputStream = imagem.getInputStream()) {
-                    Path filePath = uploadPath.resolve(filename);
-                    Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-                }
-
-                String imagePath = "/resources/img/pets/" + filename; // Caminho relativo para armazenar no banco de dados
-                pet.setImagem(imagePath);
+                // Converte a imagem em um array de bytes
+                byte[] imageBytes = imagem.getBytes();
+                pet.setImagem(imageBytes); // Armazena os bytes da imagem no banco de dados
             }
-            pr.save(pet);
+            pr.save(pet); // Salva o pet no banco de dados
         } catch (IOException e) {
-            e.printStackTrace();
-            // Adicione tratamento de erros adequado
+            e.printStackTrace(); // Tratamento de exceções
+            // Adicione mensagens de erro apropriadas para o usuário
         }
 
         return "redirect:/minhaconta";
+    }
+
+    @RequestMapping(value = "/imagem/{id}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+    public ResponseEntity<byte[]> getImagem(@PathVariable Long id) {
+        Pet pet = pr.findById(id).orElseThrow(() -> new IllegalArgumentException("ID de pet inválido: " + id));
+
+        byte[] imagem = pet.getImagem();
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imagem);
     }
 }
