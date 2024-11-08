@@ -1,6 +1,7 @@
 package com.example.pet.conf;
 import com.example.pet.model.Usuario;
 import com.example.pet.repository.UsuarioRepository;
+import org.apache.catalina.filters.CorsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 @Configuration
@@ -22,8 +29,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+
                 .authorizeRequests()
-                .antMatchers("/", "/login", "/resources/**","/pets","/editarpet","/registrar","/ong/**","/imagem/","/api/**").permitAll() // Permite acesso sem autenticação
+                .antMatchers("/",
+                        "/login",
+                        "/resources/**",
+                        "/pets",
+                        "/editarpet",
+                        "/registrar",
+                        "/swagger-ui/**",
+                        "/swagger-ui.html",
+                        "/ong/**",
+                        "/imagem/",
+                        "/pet/error",
+                        "/api/**",
+                        "/swagger-resources/**").permitAll() // Permite acesso sem autenticação
                 .anyRequest().authenticated() // Todas as outras URLs exigem autenticação
                 .and()
                 .formLogin()
@@ -36,7 +56,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/logoff-success") // Define a página de redirecionamento após o logoff
                 .permitAll() // Permite acesso ao logout sem autenticação
                 .and()
-                .csrf().disable(); // Desabilita CSRF
+                .csrf().disable();// Desabilita CSRF
+
+
     }
 
     @Autowired
@@ -71,4 +93,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .build();
         };
     }
+
+
 }
