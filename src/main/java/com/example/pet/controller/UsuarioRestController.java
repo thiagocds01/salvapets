@@ -1,21 +1,19 @@
 package com.example.pet.controller;
 
+import java.util.Date;
 import java.util.Optional;
 
 import javax.validation.Valid;
 
+import ch.qos.logback.core.boolex.Matcher;
+import com.example.pet.repository.OngRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import com.example.pet.model.Usuario;
@@ -24,10 +22,17 @@ import com.example.pet.responses.Response;
 
 @RestController
 @RequestMapping("/api/usuario")
+@CrossOrigin( origins = "*00")
 public class UsuarioRestController {
 	
 	 @Autowired
 	    private UsuarioRepository usuarioRepository;
+
+	 @Autowired
+	 private PasswordEncoder passwordEncoder;
+
+	 @Autowired
+	 private OngRepository ongRepository;
 	 
 	 
 	 @GetMapping
@@ -42,6 +47,7 @@ public class UsuarioRestController {
 	        return user.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
 	                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	    }
+
 	  
 	  @PostMapping
 	    public ResponseEntity<Response<Usuario>> createUsuario(@Valid @RequestBody Usuario usuario, BindingResult result) {
@@ -96,5 +102,32 @@ public class UsuarioRestController {
 	            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	        }
 	    }
+
+
+	@GetMapping("/login")
+	public ResponseEntity<Response<Usuario>> login(@RequestBody Usuario usuario) {
+		Response<Usuario> response = new Response<>();
+		// Busca o usuário no banco de dados
+		Usuario usuarioExistente = usuarioRepository.findByUsername(usuario.getUsername());
+
+		// Verifica se o usuário existe e se a senha está correta
+		if (usuarioExistente != null && passwordEncoder.matches(usuario.getPassword(), usuarioExistente.getPassword())) {
+			response.setData(usuarioExistente);
+			return ResponseEntity.ok(response);
+		} else {
+			response.getErrors().add("Usuário ou senha inválidos.");
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+		}
+	}
+
+	@PostMapping("/logout")
+	public ResponseEntity<HttpStatus> logout() {
+		SecurityContextHolder.clearContext();
+		return new ResponseEntity<>(HttpStatus.OK);
+	 }
+
+
+
+
 
 }
