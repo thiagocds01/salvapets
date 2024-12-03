@@ -126,7 +126,14 @@ public class UsuarioRestController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	 }
 
-
+  @PostMapping("/login")
+	    public ResponseEntity<Usuario> realizarLogin(@RequestBody Usuario usuario) {
+	        Optional<Usuario> usuarioDb = usuarioRepository.findByUsernameAndPassword(usuario.getUsername(), usuario.getPassword());
+	        if (usuarioDb.isPresent()) {
+	            return ResponseEntity.ok(usuarioDb.get());
+	        } else {
+	            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+	        }
 
 
 
