@@ -19,6 +19,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS -->
@@ -47,7 +49,7 @@
 <body>
 
     <!-- .....:::::: Start Header Section - Dark Header :::::.... -->
-    <header class="header-section pos-absolute dark-bg sticky-header d-none d-lg-block section-fluid-270">
+    <header class="header-section pos-absolute dark-bg sticky-header d-none d-lg-block section-fluid-270" style>
         <div class="header-wrapper pos-relative">
             <div class="container-fluid">
                 <div class="row justify-content-between align-items-center">
@@ -111,22 +113,13 @@
                             <div class="product-shop-list-items">
                                 <div class="row mb-n25">
                                         <!-- Start Product Single Item - Style 1 -->
-                                            <div class="container-grid">
+                                            <div class="container">
 
-                                                <c:forEach var="pet" items="${pets}">
-                                                            <div class="pet-card">
-                                                                <img class="pet-card-img" src="<c:url value='/imagem/${pet.id}' />" alt="Imagem do Pet" />
-                                                                <h3>${pet.nome}</h3>
-                                                                <p style="text-transform: capitalize;"><strong>RaÃ§a:</strong> ${pet.raca}</p>
-                                                                <p style="text-transform: capitalize;"><strong>Porte da raÃ§a:</strong> ${pet.porteRaca} </p>
-                                                                <p style="text-transform: capitalize;"><strong>Sexo:</strong> ${pet.sexo} </p>
-                                                                <p style="text-transform: capitalize;"><strong>Cor:</strong> ${pet.cor} </p>
-                                                                <p style="text-transform: capitalize;"><strong>Idade:</strong> ${pet.idade} anos</p>
-                                                                <p><strong>Historia:</strong> ${pet.historia} </p>
+                                                            <div id="map" style="width: 100%; height: 500px; z-index: 0; border-radius: 16px; shadow: 0 4px 30px rgba(0, 0, 0, 0.1);"></div>
 
-                                                           </div>
+                                            </div>
 
-                                                </c:forEach>
+
                                          </div>
                                 </div>
                             </div>
@@ -150,9 +143,9 @@
                             <div style="text-align: center; color:black;" class="footer-widgets-single-item footer-widgets-single-item--dark">
                             <h2 class="title" style="text-align: center; color:black;">Desenvolvedores </h2>
                                     <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> Lucas Carlos Rodex Campos</i><br>
-                                    <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> RamisÃ©s JÃ´nata de Assis Melo</i><br>
+                                    <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> Ramisés Jônata de Assis Melo</i><br>
                                     <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> Reginaldo Napole</i><br>
-                                    <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> Thiago ConceiÃ§Ã£o</i><br>
+                                    <i style="text-align: center; color:black;" class="bi bi-person-fill-gear"> Thiago Conceição</i><br>
 
 
 
@@ -171,6 +164,72 @@
         </div>
     </footer>
     <!-- ...::: End Footer Section Section - Footer Dark :::... -->
+
+      <script>
+        // Configuração inicial do mapa
+        const config = {
+          minZoom: 7,
+          maxZoom: 18,
+        };
+
+        const initialLat = -16.704769; // São Paulo
+        const initialLng = -49.264412; // São Paulo
+        const zoom = 11;
+
+        const map = L.map("map", config).setView([initialLat, initialLng], zoom);
+
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; OpenStreetMap',
+        }).addTo(map);
+
+        // Ícone personalizado
+        const customIcon = L.icon({
+          iconUrl: 'https://resolvendoaweb.com.br/img/veterinario.png',
+          iconSize: [32, 32],
+          iconAnchor: [16, 32],
+          popupAnchor: [0, -32],
+        });
+
+        // Função para adicionar marcadores com hover
+        function addMarkerWithHover(lat, lng, popupText, hoverText) {
+          const marker = L.marker([lat, lng], { icon: customIcon })
+            .bindPopup(popupText)
+            .addTo(map);
+
+          marker.on('mouseover', function (e) {
+            marker.bindTooltip(hoverText, { permanent: false, direction: 'top' }).openTooltip();
+          });
+
+          marker.on('mouseout', function (e) {
+            map.closeTooltip();
+          });
+        }
+
+        // Função para consumir a API
+        async function fetchPoints() {
+          try {
+            const response = await fetch('http://localhost/pet/api/denuncias');
+            const data = await response.json();
+
+            data.forEach((denuncia) => {
+              const { latitude, longitude, descricao, relato } = denuncia;
+              if (latitude && longitude) {
+                addMarkerWithHover(
+                  latitude,
+                  longitude,
+                  descricao || "Sem descrição",
+                  relato || "Sem informações"
+                );
+              }
+            });
+          } catch (error) {
+            console.error("Erro ao carregar dados da API:", error);
+          }
+        }
+
+        fetchPoints();
+      </script>
 
       <!-- ::::::::::::::All JS Files here :::::::::::::: -->
             <!-- Global Vendor -->

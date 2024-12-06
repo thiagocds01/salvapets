@@ -32,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
                 .antMatchers("/",
+                        "/denuncias",
                         "/login",
                         "/resources/**",
                         "/pets",
@@ -42,9 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/ong/**",
                         "/imagem/",
                         "/pet/error",
-                        "/api/**",
-                        "/swagger-resources/**").permitAll() // Permite acesso sem autenticação
-                .anyRequest().authenticated() // Todas as outras URLs exigem autenticação
+                        "/api/**").permitAll() // Permite acesso sem autenticação                .anyRequest().authenticated() // Todas as outras URLs exigem autenticação
                 .and()
                 .formLogin()
                 .loginPage("/login") // Define a página de login personalizada

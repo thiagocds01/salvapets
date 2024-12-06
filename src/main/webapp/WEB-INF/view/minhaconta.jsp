@@ -56,6 +56,7 @@
                            <ul>
                               <li><a href="/pet/">Home</a></li>
                               <li><a href="/pet/pets">Pets</a></li>
+                              <li><a href="/pet/mapdenuncias">Denuncias</a></li>
                               <li><a href="/pet/minhaconta">Minha Conta</a></li>
                               <li><a href="/pet/login">Login</a></li>
                               <li><a href="/pet/registrar">Registrar</a></li>
