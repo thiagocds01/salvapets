@@ -192,7 +192,7 @@
         });
 
         // Função para adicionar marcadores com hover
-        function addMarkerWithHover(lat, lng, popupText, hoverText) {
+        function addMarkerWithHover(lat, lng, popupText) {
           const marker = L.marker([lat, lng], { icon: customIcon })
             .bindPopup(popupText)
             .addTo(map);
@@ -213,12 +213,13 @@
             const data = await response.json();
 
             data.forEach((denuncia) => {
-              const { latitude, longitude, descricao, relato } = denuncia;
+              const { latitude, longitude, tipo, assunto, relato, imagem } = denuncia;
               if (latitude && longitude) {
                 addMarkerWithHover(
                   latitude,
                   longitude,
-                  descricao || "Sem descrição",
+                  tipo || "Sem informações",
+                  assunto || "Sem informações",
                   relato || "Sem informações"
                 );
               }
