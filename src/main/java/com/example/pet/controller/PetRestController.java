@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/pets")
-@CrossOrigin( origins = "http://127.0.0.1:5500/", allowCredentials = "true")
+@CrossOrigin( origins = "http://localhost:4200", allowCredentials = "true")
 public class PetRestController {
 
     @Autowired

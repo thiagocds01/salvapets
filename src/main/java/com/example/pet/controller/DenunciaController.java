@@ -30,6 +30,10 @@ public class DenunciaController {
    
     @PostMapping("/cadastrar")
     public String salvarDenuncia(
+    		@RequestParam("identificacao") String identificacao,
+			@RequestParam("cpf") String cpf,
+			@RequestParam("nome") String nome,
+			@RequestParam("email") String email,
             @RequestParam("tipo") String tipo,
             @RequestParam("assunto") String assunto,
             @RequestParam("relato") String relato,
@@ -40,6 +44,10 @@ public class DenunciaController {
         try {
             
             Denuncia denuncia = new Denuncia();
+			denuncia.setIdentificacao(identificacao);
+			denuncia.setCpf(cpf);
+			denuncia.setNome(nome);
+			denuncia.setEmail(email);
             denuncia.setTipo(tipo);
             denuncia.setAssunto(assunto);
             denuncia.setRelato(relato);
