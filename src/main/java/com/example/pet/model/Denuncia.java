@@ -15,6 +15,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.example.pet.validator.CpfAnotation;
@@ -39,6 +40,7 @@ public class Denuncia {
     private String cpf;
     
     @NotBlank(message = "O telefone é obrigatório.")
+    @Pattern(regexp = "\\d{11}", message = "O telefone deve conter 11 dígitos. (DDD + número)")
     private String telefone;
     
     
